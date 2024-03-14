@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>SmartMentor</title>
+    <meta name="description" content="Welcome to SmartMentor - Your guide to success.">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'myapp/home.css' %}">
+    <style>
+        body {
+            background-image: url('{% static 'myapp/background.jpg' %}');
+            background-size: cover;
+            background-attachment: fixed;
+        }
+        .feature {
+            background-image: url('{% static 'path/to/your/feature-image.jpg' %}');
+            background-size: cover;
+            background-position: center;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="header-left">
+            <img src="{% static 'myapp/logo.png' %}" alt="SmartMentor Logo" />
+        </div>
+        <div class="header-center">
+            <span>Empowering Your Learning Journey with AI</span>
+        </div>
+        <nav class="header-right">
+            {% if user.is_authenticated %}
+            <span>Welcome, {{ fname }}!</span>
+            <a href="/signout">Sign Out</a>
+            {% else %}
+            <a href="/signup">Join Us</a>
+            <a href="/signin">Log In</a>
+            {% endif %}
+        </nav>
+    </header>
+
+    <main>
+        {% for message in messages %}
+        <div class="alert alert-{{ message.tags }}">
+            <strong>Message:</strong> {{ message }}
+            <span class="alert-close">&times;</span>
+        </div>
+        {% endfor %}
+
+        <div class="content-container">
+            <!-- Feature Containers with Background Images -->
+            <div class="feature" style="background-image: url('{% static 'myapp/personal.jpg' %}');">
+                <h3>Personalized Learning Pathways</h3>
+                <p>
+                    Embrace a learning journey that understands you. Our platform goes beyond traditional one-size-fits-all education models by harnessing advanced AI to craft personalized pathways. Analyzing your unique learning patterns, preferences, and performance, SmartMentor ensures that every lesson, every challenge is attuned to your personal educational narrative. Discover a learning adventure that evolves with you, keeping you engaged and ensuring you achieve your fullest potential.
+                </p>
+            </div>
+            <div class="feature" style="background-image: url('{% static 'myapp/ai.jpg' %}');">
+                <h3>AI Tutor</h3>
+                <p>
+                    Encounter the future of tutoring with SmartMentor's AI Tutor. Available round the clock, our AI Tutor provides instantaneous, personalized support for all your learning needs. From clarifying doubts in real-time to offering in-depth explanations and step-by-step guides for complex subjects, the AI Tutor adapts to your level, pacing, and style, ensuring no query goes unanswered. Transform your learning experience with an ever-present, ever-patient, and ever-adaptive tutor.
+                </p>
+            </div>
+            <div class="feature" style="background-image: url('{% static 'myapp/games.jpg' %}');">
+                <h3>Interactive Learning Tools</h3>
+                <p>
+                    Dive into an immersive learning environment with SmartMentor's suite of interactive tools. Our platform brings learning to life through engaging quizzes, collaborative Q&A forums, and gamified challenges that make education an adventure. Each interactive experience is designed to reinforce your learning, provide instant feedback, and cultivate a community of curiosity and growth. With SmartMentor, every interaction is an opportunity to learn, share, and excel.
+                </p>
+            </div>
+        </div>
+
+        <!-- put a putton to go inside the app only when user is registered-->
+        {% if user.is_authenticated %}
+        <a href="/dashboard" class="cta-button">Explore SmartMentor</a>
+        {% endif %}
+        
+    </main>
+
+    <footer>
+        <p>Empowering Learners Worldwide - © 2024 SmartMentor</p>
+    </footer>
+
+    <script src="{% static '' %}" async defer></script>
+</body>
+</html>

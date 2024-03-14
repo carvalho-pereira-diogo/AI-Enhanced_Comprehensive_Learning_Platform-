@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>SmartMentor Dashboard</title>
+    <meta name="description" content="Empower your learning journey with personalized AI guidance, courses, and interactive quizzes.">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'myapp/home.css' %}">
+</head>
+<body>
+    <header>
+        <div class="dashboard-header">
+            <div>          
+                {% if user.is_authenticated %}
+                <span>Welcome, {{ fname }}!</span>
+                <a href="/signout">Sign Out</a>
+                {% else %}
+                <a href="/signup">Join Us</a>
+                <a href="/signin">Log In</a>
+                {% endif %}</div>
+            <nav class="dashboard-nav">
+                <a href="/profile">Profile</a>
+                <a href="/courses">Courses</a>
+                <a href="/ai-tutor">AI Tutor</a>
+                <a href="/quizzes">Quizzes</a>
+                <a href="/qa">Q&A</a>
+            </nav>
+        </div>
+    </header>
+
+    <main class="dashboard-content">
+        <!-- Content goes here -->
+    </main>
+
+    <footer>
+        <p>© 2024 SmartMentor. All rights reserved.</p>
+    </footer>
+</body>
+</html>

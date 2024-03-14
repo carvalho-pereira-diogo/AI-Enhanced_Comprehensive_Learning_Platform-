@@ -1,0 +1,246 @@
+/* Resetting default browser styles */
+
+body,
+h1,
+nav,
+div,
+p,
+a {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html,
+body {
+    height: 100%;
+    /* Ensures the full height is used for flexbox in body */
+    margin: 0;
+    /* Resets any default margin */
+}
+
+body {
+    display: flex;
+    flex-direction: column;
+    /* Stacks main content and footer */
+    font-family: 'Arial', sans-serif;
+    line-height: 1.6;
+    color: #333;
+}
+
+header {
+    display: flex;
+    align-items: center;
+    background-color: #0057B8;
+    color: #fff;
+    padding: 10px 20px;
+}
+
+.header-left img {
+    height: 150px;
+    width: auto;
+    /* Adjust based on your logo's size */
+}
+
+.header-left,
+.header-right {
+    flex: 1;
+}
+
+.header-center {
+    text-align: center;
+    font-size: 1.5rem;
+    /* Increased size for emphasis */
+    font-weight: bold;
+    color: #EAEAEA;
+    /* A light color for contrast */
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+    /* Adding depth */
+    padding: 10px;
+    /* Optional: Adjust spacing around the text */
+}
+
+.header-center span {
+    /* put background with a white color */
+    background-color: #fff;
+    /* Add padding to the background */
+    padding: 5px 10px;
+    /* Add border radius */
+    border-radius: 5px;
+    /* Add margin to the background */
+    margin: 0 5px;
+    /* Add shadow to the background */
+    box-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2);
+    /* Add color to the background */
+    color: #0057B8;
+    /* Add shadow to the background */
+    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.2);
+    /* Add shadow to the background */
+    font-weight: bold;
+    /* Add shadow to the background */
+    text-transform: uppercase;
+    /* Add shadow to the background */
+    font-size: 1.5em;
+}
+
+.header-right {
+    display: flex;
+    justify-content: flex-end;
+}
+
+nav a {
+    color: #fff;
+    text-decoration: none;
+    padding: 5px 15px;
+    /* Gives a better touch target */
+    margin: 0 10px;
+    /* Spacing between links */
+}
+
+nav a:hover {
+    background-color: #0046a3;
+    /* Optional: hover effect */
+}
+
+main {
+    flex: 1;
+    /* Allows main to grow and fill available space, pushing the footer down */
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 20px;
+}
+
+.content-container {
+    width: 100%;
+    /* Full width of main */
+    max-width: 1200px;
+    /* Maximum width of the container, adjust as needed */
+    margin: auto;
+    /* Centering the container if it's narrower than the main tag */
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 20px;
+    /* Spacing between features */
+    position: relative;
+    z-index: 1;
+    /* Stacking context for the footer */
+}
+
+.feature {
+    flex: 0 1 calc(33.333% - 40px);
+    /* flex-grow, flex-shrink, and flex-basis */
+    margin: 10px;
+    /* Margin for spacing between features */
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    color: #fff;
+    position: relative;
+    background-size: cover;
+    background-position: center;
+    min-height: 100px;
+    /* Minimum height for feature blocks */
+}
+
+.feature::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    background-color: rgba(0, 0, 0, 0.5);
+    border-radius: 10px;
+    z-index: 0;
+}
+
+.feature>* {
+    position: relative;
+    z-index: 1;
+}
+
+.feature h3 {
+    font-size: 1.75rem;
+    /* Put color to cyan */
+    color: #00B4D8;
+    /* A modern blue shade for headings */
+    text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.2);
+    /* Soft shadow for depth */
+    margin-bottom: 0.5rem;
+    /* Space between heading and paragraph */
+    /* center the heading */
+    text-align: center;
+}
+
+.feature p {
+    font-size: 1rem;
+    /* Change color to a light one */
+    color: #f2f2f2;
+    /* Dark grey for text for better readability */
+    line-height: 1.6;
+    /* Spacing for line height for better readability */
+    text-align: center;
+    /* Justify alignment for a clean look */
+}
+
+
+/* Adding a gradient to the background for a modern effect */
+
+
+/* Enhancing buttons or actionable items within the feature for interactivity */
+
+.feature a {
+    background-color: #00B4D8;
+    /* Bright blue color for buttons */
+    color: white;
+    /* White text on buttons */
+    padding: 10px 20px;
+    /* Padding for size */
+    border-radius: 5px;
+    /* Rounded corners for modern look */
+    text-decoration: none;
+    /* Remove underline from links */
+    box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.2);
+    /* Shadow for depth */
+    transition: background-color 0.3s ease;
+    /* Transition for a smooth color change on hover */
+}
+
+.feature a:hover {
+    background-color: #0096C7;
+    /* Darker shade on hover for interaction */
+}
+
+footer {
+    background-color: #D52B1E;
+    color: #fff;
+    text-align: center;
+    padding: 10px 0;
+    /* Removes position: absolute and lets flexbox handle positioning */
+}
+
+
+/* Responsive design adjustments */
+
+
+/* Additional styles for responsiveness */
+
+@media (max-width: 768px) {
+    header {
+        flex-wrap: wrap;
+    }
+    .header-left,
+    .header-center,
+    .header-right {
+        flex: 0 0 100%;
+        /* Each takes full width */
+        justify-content: center;
+        /* Center content */
+        text-align: center;
+        margin: 5px 0;
+        /* Add some spacing */
+    }
+}
