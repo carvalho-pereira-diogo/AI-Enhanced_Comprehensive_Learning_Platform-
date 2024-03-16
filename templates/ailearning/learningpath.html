@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Learning Pathway Questionnaire</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <main>
+        <h1>Determine Your Learning Pathway</h1>
+        <form id="learning-pathway-form" action="/submit-pathway" method="POST">
+            <div class="question">
+                <p>How do you prefer to learn new subjects?</p>
+                <label><input type="radio" name="learningPreference" value="videos"> Videos</label>
+                <label><input type="radio" name="learningPreference" value="articles"> Articles</label>
+                <label><input type="radio" name="learningPreference" value="books"> Books</label>
+            </div>
+            
+            <div class="question">
+                <p>What is your current level of expertise in the subject matter?</p>
+                <select name="expertiseLevel">
+                    <option value="beginner">Beginner</option>
+                    <option value="intermediate">Intermediate</option>
+                    <option value="advanced">Advanced</option>
+                </select>
+            </div>
+
+            <div class="question">
+                <p>What topics are you interested in? (Select multiple if applicable)</p>
+                <label><input type="checkbox" name="interests" value="mathematics"> Mathematics</label>
+                <label><input type="checkbox" name="interests" value="science"> Science</label>
+                <label><input type="checkbox" name="interests" value="history"> History</label>
+            </div>
+
+            <div class="question">
+                <p>In a few words, describe your learning goals:</p>
+                <textarea name="learningGoals" rows="4" placeholder="E.g., 'I want to improve my math skills for my career'"></textarea>
+            </div>
+
+            <button type="submit">Submit</button>
+        </form>
+    </main>
+</body>
+</html>

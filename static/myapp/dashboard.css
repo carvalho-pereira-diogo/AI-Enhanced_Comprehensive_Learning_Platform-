@@ -1,52 +1,81 @@
+/* Basic Reset */
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Arial', sans-serif;
+    line-height: 1.6;
+}
+
+header {
+    background-color: #0057B8;
+    color: white;
+    padding: 10px 20px;
+    text-align: center;
+}
+
+
 /* The side navigation menu */
 
 .sidebar {
-    margin: 0;
-    padding: 0;
-    width: 200px;
-    background-color: #f1f1f1;
+    height: 100vh;
+    width: 250px;
+    /* Wider sidebar for aesthetics */
     position: fixed;
-    height: 100%;
-    overflow: auto;
+    top: 0;
+    left: 0;
+    background-color: #2C3E50;
+    /* Darker shade for modern look */
+    overflow-x: hidden;
+    overflow-y: auto;
+    /* Just in case */
+    box-shadow: 2px 0 5px rgba(0, 0, 0, 0.5);
+    /* Soft shadow for depth */
 }
 
-
-/* Sidebar links */
+.sidebar ul {
+    list-style-type: none;
+}
 
 .sidebar a {
     display: block;
-    color: black;
-    padding: 16px;
+    color: white;
+    padding: 20px;
     text-decoration: none;
+    transition: color 0.3s ease, background-color 0.3s ease;
 }
 
-
-/* Active/current link */
-
+.sidebar a:hover,
 .sidebar a.active {
-    background-color: #04AA6D;
-    color: white;
+    background-color: #18BC9C;
+    /* Bright color for active/hover */
+    color: #FFF;
 }
 
 
-/* Links on mouse-over */
+/* Adjusting content margin */
 
-.sidebar a:hover:not(.active) {
-    background-color: #555;
-    color: white;
+.dashboard-content {
+    margin-left: 250px;
+    /* Adjusted to match sidebar width */
+    padding: 20px;
 }
 
-
-/* Page content. The value of the margin-left property should match the value of the sidebar's width property */
-
-div.content {
-    margin-left: 200px;
-    padding: 1px 16px;
-    height: 1000px;
+footer {
+    background-color: #D52B1E;
+    color: #fff;
+    text-align: center;
+    padding: 10px 0;
+    /* Removes position: absolute and lets flexbox handle positioning */
+    /* put the footer at the bottom of the page */
+    position: fixed;
+    width: 100%;
+    bottom: 0;
 }
-
-
-/* On screens that are less than 700px wide, make the sidebar into a topbar */
 
 @media screen and (max-width: 700px) {
     .sidebar {
@@ -55,19 +84,15 @@ div.content {
         position: relative;
     }
     .sidebar a {
-        float: left;
+        float: none;
     }
-    div.content {
+    .dashboard-content {
         margin-left: 0;
     }
 }
 
-
-/* On screens that are less than 400px, display the bar vertically, instead of horizontally */
-
 @media screen and (max-width: 400px) {
     .sidebar a {
         text-align: center;
-        float: none;
     }
 }

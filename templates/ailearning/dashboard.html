@@ -7,31 +7,36 @@
     <meta name="description" content="Empower your learning journey with personalized AI guidance, courses, and interactive quizzes.">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     {% load static %}
-    <link rel="stylesheet" href="{% static 'myapp/home.css' %}">
+    <link rel="stylesheet" href="{% static 'myapp/dashboard.css' %}">
 </head>
 <body>
     <header>
         <div class="dashboard-header">
-            <div>          
-                {% if user.is_authenticated %}
-                <span>Welcome, {{ fname }}!</span>
-                <a href="/signout">Sign Out</a>
-                {% else %}
-                <a href="/signup">Join Us</a>
-                <a href="/signin">Log In</a>
-                {% endif %}</div>
-            <nav class="sidebar">
-                <a href="/profile">Profile</a>
-                <a href="/courses">Courses</a>
-                <a href="/ai-tutor">AI Tutor</a>
-                <a href="/quizzes">Quizzes</a>
-                <a href="/qa">Q&A</a>
-            </nav>
+            {% if user.is_authenticated %}
+            <span>Welcome, {{ user.first_name }}!</span>
+            {% endif %}
         </div>
     </header>
 
+    <div class="sidebar">
+        <ul>
+            {% if user.is_authenticated %}
+            <li><a href="/dashboard" class="active">Dashboard</a></li>
+            <li><a href="/profile">Profile</a></li>
+            <li><a href="/courses">Courses</a></li>
+            <li><a href="/aitutor">AI Tutor</a></li>
+            <li><a href="/quizzes">Quizzes</a></li>
+            <li><a href="/qa">Q&A</a></li>
+            <li><a href="/signout">Sign Out</a></li>
+            {% else %}
+            <li><a href="/signup">Join Us</a></li>
+            <li><a href="/signin">Log In</a></li>
+            {% endif %}
+        </ul>
+    </div>
+
     <main class="dashboard-content">
-        <!-- Content goes here -->
+        <!-- Dynamic Content Here -->
     </main>
 
     <footer>
